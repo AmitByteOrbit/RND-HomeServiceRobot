@@ -27,4 +27,20 @@ The shell scripts for each component of the project can be found in the `scripts
 5. **add_marker.sh** : Launches the `add_markers` node which I created for this project. (Actually runs `add_markers_orig` node because the `add_markers` node is modified for the last part.)
 6. **home_service.sh** : This script launches the `pick_objects` and the `add_markers` node for the Home Service Robot.
 
+</br></br>
+## Simulation Setup
+Here is an image of the Turtlebot loaded in my world.
+
+<p align="center"><img src="/misc/robot_gazebo.png" width="800"></p>
+
+## MAPPING
+In order to implement SLAM in this project we used a ROS wrapper for Openslam's Gmappaing. This package is called slam_gmapping and is referenced above. This package is capable of creating a 2D occupancy grid map from laser and pose data collected from the mobile robot.
+
+Here is a very partial output from the gmapping test section of the project:
+
+<p align="center"><img src="/misc/slam_test.png" width="800"></p>
+
+
+## 
+
 
