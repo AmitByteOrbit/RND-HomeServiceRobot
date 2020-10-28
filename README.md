@@ -73,5 +73,4 @@ The subscriber subscribed to the robot's odometry on the `odom` topic. This was 
 ## Home service in action
 
 Here is a little video clip of the Home Service Robot in action once everything was completed.
-
-
+<p align="center"><img src="/misc/home-service-robot-vid.gif" width="800"></p>
