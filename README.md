@@ -31,9 +31,10 @@ The shell scripts for each component of the project can be found in the `scripts
 ## Simulation Setup
 Here is an image of the Turtlebot loaded in my world.
 
-<p align="center"><img src="/misc/robot_gazebo.png" width="800"></p>
+<p align="center"><img src="/misc/robot_gazebo2.png" width="800"></p>
 
 ## MAPPING
+Simultaneous localization and mapping, or SLAM for short, is the process of creating a map using a robot or unmanned vehicle that navigates that environment while using the map it generates.
 In order to implement SLAM in this project we used a ROS wrapper for Openslam's Gmappaing. This package is called slam_gmapping and is referenced above. This package is capable of creating a 2D occupancy grid map from laser and pose data collected from the mobile robot.
 
 Here is a very partial output from the gmapping test section of the project:
@@ -41,6 +42,11 @@ Here is a very partial output from the gmapping test section of the project:
 <p align="center"><img src="/misc/slam_test.png" width="800"></p>
 
 
-## 
+## Localization and Navigation
+For localization and navigation we used the ROS Navigation stack, which is based on the Dijkstra's, a variant of the Uniform Cost Search algorithm. The Uniform-cost search is a searching algorithm used for traversing a weighted tree or graph. The ROS navigation stack helps the robot to avoid any obstacle on its path by re-planning a new trajectory once your robot encounters them. The localization aspect is achieve using AMCL (adaptive monte carlo localization) which is an algorithm for robots to localize using a particle filter. 
+The ROS navigation stack is a 2D navigation stack that takes in information from odometry, sensor streams, and a goal pose and outputs safe velocity commands that are sent to a mobile base.
 
+Here is the robot busy with Localization and Navigation using rviz 2d nav goals.
+
+<p align="center"><img src="/misc/nav2.png" width="600"></p>
 
