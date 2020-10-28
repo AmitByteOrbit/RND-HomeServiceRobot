@@ -63,11 +63,11 @@ The `pick_objects` node involved sending simple goals to the the Navigation Stac
 
 </br></br>
 ## Add Markers
-There were two version of this node that I created. One is called `add_markers_orig` which was the add markers test and functions with the `add_markers.sh` script. This node functioned as both - a publisher and a subscriber.
+There were two version of this node that I created. One is called `add_markers_orig` which was the add markers test and functions with the `add_markers.sh` script. This node functioned as both - a publisher and a subscriber.</br></br>
 The publisher published the marker under the `visualization_marker` topic. This was displayed in RViz using the *Marker* view.
-`ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);`
+</br>`ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);`</br></br>
 The subscriber subscribed to the robot's odometry on the `odom` topic. This was used to calculate the robots pose and determine if the robot was at a pick-up or drop-off zone.
-`ros::Subscriber robot_sub = n.subscribe("/odom",1000,robotPoseCallback);`
+</br>`ros::Subscriber robot_sub = n.subscribe("/odom",1000,robotPoseCallback);`
 
 </br></br>
 ## Home service in action
