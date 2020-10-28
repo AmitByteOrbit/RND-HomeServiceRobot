@@ -41,7 +41,14 @@ Here is a very partial output from the gmapping test section of the project:
 
 <p align="center"><img src="/misc/slam_test.png" width="800"></p>
 
+</br></br>
+## PGM Map File
+The map ROS AMCL Package uses is a pgm file. A pgm file is a grayscale image file. As outlined in the Localization project I used the PGM_Map_Creator (https://github.com/hyfan1116/pgm_map_creator) to create a PGM map file. The file is located in the /src/map foler along with the associated YAML file.
 
+Here is what my PGM file looks like:
+<p align="center"><img src="/misc/map.png" width="800"></p>
+
+</br></br>
 ## Localization and Navigation
 For localization and navigation we used the ROS Navigation stack, which is based on the Dijkstra's, a variant of the Uniform Cost Search algorithm. The Uniform-cost search is a searching algorithm used for traversing a weighted tree or graph. The ROS navigation stack helps the robot to avoid any obstacle on its path by re-planning a new trajectory once your robot encounters them. The localization aspect is achieve using AMCL (adaptive monte carlo localization) which is an algorithm for robots to localize using a particle filter. 
 The ROS navigation stack is a 2D navigation stack that takes in information from odometry, sensor streams, and a goal pose and outputs safe velocity commands that are sent to a mobile base.
@@ -49,4 +56,22 @@ The ROS navigation stack is a 2D navigation stack that takes in information from
 Here is the robot busy with Localization and Navigation using rviz 2d nav goals.
 
 <p align="center"><img src="/misc/nav1.png" width="600"></p>
+
+</br></br>
+## Pick Objects
+The `pick_objects` node involved sending simple goals to the the Navigation Stack so that the robot to navigate to the goals. For me the main aspect was to create a goal and send it to move_base using the move_base_msgs::MoveBaseGoal message type which is included automatically with the MoveBaseAction.h header. This node can be tested using the `pick_objects.sh` script.
+
+</br></br>
+## Add Markers
+There were two version of this node that I created. One is called `add_markers_orig` which was the add markers test and functions with the `add_markers.sh` script. This node functioned as both - a publisher and a subscriber.
+The publisher published the marker under the `visualization_marker` topic. This was displayed in RViz using the *Marker* view.
+`ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);`
+The subscriber subscribed to the robot's odometry on the `odom` topic. This was used to calculate the robots pose and determine if the robot was at a pick-up or drop-off zone.
+`ros::Subscriber robot_sub = n.subscribe("/odom",1000,robotPoseCallback);`
+
+</br></br>
+## Home service in action
+
+Here is a little video clip of the Home Service Robot in action once everything was completed.
+
 
