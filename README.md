@@ -48,5 +48,5 @@ The ROS navigation stack is a 2D navigation stack that takes in information from
 
 Here is the robot busy with Localization and Navigation using rviz 2d nav goals.
 
-<p align="center"><img src="/misc/nav2.png" width="600"></p>
+<p align="center"><img src="/misc/nav1.png" width="600"></p>
 
